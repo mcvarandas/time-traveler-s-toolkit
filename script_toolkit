@@ -1,0 +1,24 @@
+#Import the necessary modules
+import datetime as dt
+from decimal import Decimal
+from random import randint, choice
+from custom_module import generate_time_travel_message
+
+#Use the datetime module to retrieve the current date and time
+today = dt.datetime.now()
+
+#Use the randint() function to generate a random year within a specified range, which will be the target year for the time travel
+final_year = randint(1, 3025)
+
+#Calculate the time travel cost
+base_cost = Decimal('500.00')
+difference = abs(today.year - final_year)
+final_cost = base_cost * difference
+
+#Create a list of possible destinations and use the choice() function to randomly select one
+possible_destinations = ["Southern Asia", "Eastern Asia", "Sub-Saharan Africa", "South-eastern Asia", "Latin America and the Caribbean", "Eastern Africa", "South America", "Western Africa", "Northern America", "Eastern Europe", "Western Asia", "Northern Africa", "Western Europe", "Middle Africa", "Central America", "Southern Europe", "Northern Europe", "Central Asia", "Southern Africa", "Caribbean", "Australia and New Zealand", "Melanesia", "Polynesia", "Micronesia", "Antarctica"]
+final_destination = choice(possible_destinations)
+
+#Use the Custom Module
+Client1 = generate_time_travel_message(final_year, final_destination, final_cost)
+print(Client1)
